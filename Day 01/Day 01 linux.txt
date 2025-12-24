@@ -1,0 +1,138 @@
+why Linux?
+most of the servers, DevOps tools run on Linux. Tools like Kubernetes and docker had initially supported Linux and Linux offers great automation.
+
+what are the common problems that windows users face to transit to Linux?
+Understanding different package managers because of distros, command line familiarity
+
+working with shell
+shell allows text based interaction between user and the operating system.
+Home directory is the first directory that we will be in when we log in to a Linux system.
+~ command represent the home directory
+
+echo command is used to print a line of text on the terminal.
+we need arguments with echo command to print what is to be printed .
+arguments are inputs to a command that modify the command for a specific need.
+options are meant to serve a purpose within the command
+
+
+two types of commands
+internal - they are commands that are built in to the shell and execute faster.
+external - they are executable files stored in a system where shell will locate and load. we can create custom external commands.
+To check if the command is internal or external use type command.
+
+
+Basic commands of Linux
+pwd - present working directory
+ls - list contents
+mkdir - directory creation(multiple directories can be created at once using space between directory names
+mkdir dir1/dir2 creates dir2 inside dir1
+mkdir -p dir1/dir2 creates both dir1 and inside it creates dir2
+
+cd .. - go to the up directory
+cd - home directory
+cd /dir1/dir2 - goes to dir2
+
+Absolute and relative path
+absolute path- location starting from root directory e.g., cd /home/dir1
+
+relative path - the path of the file starting from current directory to subdirectories directly from current path 
+
+pushd and popd - pushd can be used to keep a memory of directory we were in previously so that popd can be used to follow navigation in reverse order 
+
+mv - move command has two arguments source and destination
+mv source dest
+mv can be used to rename as well use relative path of the source(name that has to be changed) and dest(the new name)
+
+cp - copy sourcefile destination
+
+rm filename - remove the file 
+cp -r - recursive operation(recursive copies the entire subdirectories from source to dest)
+
+cat command is used to read the content of the file 
+cat relative/absolute path of the file 
+
+cat > filename(asks for input to append the text)
+input some text and press ctrl+d to save the file  
+
+touch is used to create an empty file 
+touch relativepathtothefile
+
+more filenameorpathtofile gives the contents of the file in a scrollable manner
+space to scroll one screen of data
+enter to scroll one line of data
+b to scroll line backwards
+/ to search for the text 
+q to exit out 
+
+ls -l gives details of the file in the directories
+ls -a gives the hidden files 
+ls -lt to sort the files based on latest used
+ls -ltr to reverse the sort based on oldest used
+
+Help in command line 
+whatis commandname gives a single line description of the command
+
+man commandname gives the usecase and desc of the command
+
+commandname --help or -h gives the options available for command 
+
+apropos command lists all the commands and uses based on the the keyword term that we specify 
+
+apropos file gives commands that have keyword 'file' in either desc or name
+
+different types of shells
+bourne shell
+cshell
+kor shell
+z shell
+bourne again shell(bash)
+
+echo $shell gives the shell that we are using currently 
+chsh is used to change the type of shell
+
+
+Bash shell features - 
+1. tab key allows command completion 
+2. we can set custom aliases(alias custname=actualname) 
+3. history command helps to track all the commands used previously
+
+$ is environment variable that stores value of environment variables 
+$shell store 
+env list all the environment variables set 
+to set an environment variable use export varname=value
+to add them permanently set variables in .pam_environment or .profile in home directory
+
+echo $ prints value of env variable specified
+
+each $path list all paths of binaries 
+which commandname gives the path of the binaries of the command
+environment variables are case sensitive
+if not present we can use export path=%path:/opt/command/bin
+
+bash prompt is the way of appearance of shell that is within the brackets for each command
+example echo $ps1 changes the shell to appear like [\w]$
+basically ps1 env variable contains the way of appearance of bash prompt
+
+Linux kernel
+responsible for intermediate between Linux operating system and hardware like memory management, process management, device drivers, systemcalls and security
+
+It is monolithic and modular(dynamic with custom modules)
+
+commands 
+uname - to display info about kernel 
+uname -r to get the info about all versions 
+first digit is the kernel version
+
+memory is divided into kernel space and user space 
+kernel space is portion of memory for kernel code or extensions or drivers
+
+user space is portion of memory that user can use for his use(programs written by user)
+
+to access something on hardware, user calls the kernel and then the user gets back control 
+
+example when a usb is attached, kernel space first detects the usb and then it is sent to user space with udev 
+
+grep is used to search for specific keywords
+
+
+
