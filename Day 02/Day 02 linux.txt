@@ -1,0 +1,107 @@
+Boot process in Linux
+Bios post(test) - checks hardware attachments
+boot loader  - provides user with multiple boot options
+kernel initialization - loads kernel into memory and decompress
+init process(systemd) - sets  up init space and operations for user. systemd is responsible for bringing the Linux host to a usable state meanining mounting file systems, starting and managing system services.
+
+ls -l /sbin/init shows if sys5 or systemd is used
+
+2 methods of initiating boot process
+reboot
+resume halted state
+
+
+how to set to jump into gui or command mode after boot?
+there is someting called runlevel to do it
+
+runlevel command gives a value that implies the function 
+3 - cli
+5 - gui
+
+systemctl get-default gives the runlevel that is used
+systemctl set-default is used to change between multiuser(cli)or graphical(gui) target
+
+
+file types in linux
+every object in linux is considered as file
+three types
+regular - images, scripts, config
+directory - they store other files
+special files - characterfiles(allows os to communicate with io devices), block files(hard disks and ram), links(hardlinks and soft links(shortcut)), sockets, namedpipes(from first process to next process)
+
+how to identify file type 
+use file command followed by the file to get the type of the file
+lshw is used to list hardware
+
+
+Filesystem hierarchy
+/home - home directory except for root directory
+/opt -  to install custom projects or applications on linux
+/mnt - mounts file system temporarily(from external sources)
+/tmp - used to store temporary data
+/media - external media is mounted in this directory(df -hp) shows details of these files
+/dev - contains special files that were seen in filetypes
+/bin - contains the binaries and basic programs
+/etc - contains the configuration files lin linux
+/lib - shared libraries to be imported to programs
+/usr - locations for application data  for user level 
+/var - logs and cache data
+
+
+Package management 
+based on Debian and rhel, package managers differ
+package is an archive compress that contains all the binaries and metadata required by a software to run
+it ensures the signatures of the source of package and manages the dependencies so that we dont get dependency erros while installing a software  
+
+Debian based - dpkg, apt, apt-get
+rpm based - rpm, rum, dnf
+
+RPM 
+.rpm is the file extension 
+install - rpm -ivh package name for detailed installation. i for install, v for detailed realtime process, h for progress bar appearance in hashmark ,
+uninstall - rpm -e package name,
+upgrade - rpm -Uvh package name. U for upgrade ,
+query rpm -q package name ,
+verifying - rpm -Vf path to file. used to verify trusted source installation of package.
+
+YUM
+it is a higher level package manager.
+/etc/yum.repos tell yum where to find the rpm packages 
+It depends on rpm 
+It handles automatich dependency resolution
+we can add custom repos for installing packages of third party applcations
+yum first check if dependent packages are already installed in system and also checks the repos file for the for availability of package
+asks for y or n to install or not showing the summary
+
+
+YUM commands
+yum repolist - shows all the repos configured
+yum provides - Finds which package provides a specific file or feature
+yum remove - remove the package
+yum update packagename- update a single package
+yum update - updates all the packages in the system
+
+
+Dpkg
+.deb is the extension of the file 
+dpkg -i packagename
+dpkg -r packagename
+dpkg -l for listing and desc
+dpkg -s for status
+dpkg -p maintainer info
+
+apt 
+/etc/apt/sources.list contains repository list from which packages can be installed 
+apt update to refresh repos
+apt upgrade updates all latest packages 
+apt edit-sources to edit repos of the sources
+apt install packagename
+apt remove 
+apt search to look for package 
+apt list to list all the packagesfrom configured repos
+apt is better than atp-get and user friendly output for all commands
+
+
+
+
+
