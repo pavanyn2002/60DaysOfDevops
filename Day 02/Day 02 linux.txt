@@ -103,5 +103,55 @@ apt is better than atp-get and user friendly output for all commands
 
 
 
+Linux core concepts
+
+Viewing file sizes
+du -sk size of file in kb
+du -sh size of file in human readable 
+
+tar is used for archive multiple files or directories
+tar -cf filename file1 file2 file 3. c is used to create an archieve and f is used to specify the name of file to be created
+tar -tf filename is used to see contents of tar
+tar -xf is used to extract the tar file 
+tar -zcf is used to compress the tar ball to redudce the size
+
+compressing 
+bzip, gzip, xz are different commands to compress afile 
+
+bunzip, gunzip and unxz are commands to unzip files based on the previous commands
+
+zcat, bzcat,szcat are used to read files without uncompressing them 
+
+
+File search and patterns
+locate filename gives the filename location. depends on mlocate.db. we need to manually update using updatedb to update db used for searching file
+
+find directory -name name is used to find name of file withing directory
+
+Grep is used to print names of file matching a pattern
+
+grep searchterm filename - prints the lines matching searchterm in filename. it is case sensitive by default
+
+grep -i for ignoring case 
+grep -r "searchterm" directory - prints all the files and the searchterm lines withing all the files in the directory
+grep -v "pattern" filename - list all lines that do not match a pattern
+grep -w searches for exact match of the word instead of a pattern 
+grep -A matches the pattern alongside the prints number of lines after A in the option 
+grep -B matches the pattern alongside the prints number of lines before B in the option 
+
+IO redirection 
+> to overwrite the output to another file 
+>> to append the to file. for error messages use >> to send error output to another file 
+| is used to send output of one command to another 
+tee command is used to see the output and overwrite to file simultaneously. tee -a appends to the file 
+
+
+
+
+
+
+
+
+
 
 
